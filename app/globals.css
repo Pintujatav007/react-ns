@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --bg: 255 255 255; --cream: 246 239 230; --ink: 59 35 20; --mute: 117 94 80; --line: 228 216 203; --brand: 74 40 20; }
+.dark { --bg: 27 18 13; --cream: 39 27 20; --ink: 246 237 227; --mute: 192 172 156; --line: 70 52 41; --brand: 214 165 118; }
+
+body { @apply bg-bg text-ink font-sans antialiased; }
+:focus-visible { outline: 2px solid rgb(var(--brand)); outline-offset: 2px; }
+.btn { @apply inline-flex items-center gap-2 rounded-md border border-line px-3 py-2 text-sm font-medium hover:bg-cream disabled:opacity-50; }
+.btn-primary { @apply rounded-md bg-brand px-4 py-2 text-sm font-semibold text-bg hover:opacity-90; }
+
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.ticker-track { animation: ticker 60s linear infinite; }
+.ticker:hover .ticker-track, .ticker:focus-within .ticker-track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; } }
